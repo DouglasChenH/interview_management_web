@@ -8,6 +8,8 @@ public interface UserRepository extends MongoRepository<User, String> {
 
     User findByEmailAddress(String email);
 
+    User findByNameAndPassword(String fullName, String password);
+
     User findByConfirmationToken(String confirmationToken);
 
 }

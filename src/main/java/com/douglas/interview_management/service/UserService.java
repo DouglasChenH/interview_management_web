@@ -20,6 +20,10 @@ public class UserService {
         return userRepository.findByEmailAddress(emailAddress);
     }
 
+    public User findByNameAndPassword(String fullName, String password) {
+        return userRepository.findByNameAndPassword(fullName, password);
+    }
+
     public User findByConfirmationToken(String confirmationToken) {
         return userRepository.findByConfirmationToken(confirmationToken);
     }

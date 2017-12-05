@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout}">
 
 <head>
 
@@ -40,7 +43,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
-                    <h1><strong>IMS</strong> Registration Form</h1>
+                    <h1><strong>IMS</strong> Sign In Form</h1>
                     <div class="description">
                         <p>
                             <strong>IMS</strong>, manages your interviews!
@@ -52,41 +55,46 @@
                 <div class="col-sm-6 col-sm-offset-3 form-box">
                     <div class="form-top">
                         <div class="form-top-left">
-                            <h3>Sign up to our site</h3>
-                            <p>Enter your information to register:</p>
+                            <h3>Login to our site</h3>
+                            <p>Enter your username and password to log on:</p>
                         </div>
                         <div class="form-top-right">
                             <i class="fa fa-key"></i>
                         </div>
                     </div>
                     <div class="form-bottom">
-                        <form role="form" action="" method="post" class="register-form" th:object="${user}">
+                        <form role="form" th:action="@{login.html}" method="post" class="login-form" >
                             <div class="form-group">
-                                <label class="sr-only" for="form-firstname">First Name</label>
-                                <input type="text" name="form-firstname" placeholder="First Name..." class="form-firstname form-control" id="form-firstname" th:text="*{firstName}"/>
+                                <label class="sr-only" for="username">Full Name</label>
+                                <input type="text" name="username" placeholder="Username..." class="form-control" id="username" />
                             </div>
                             <div class="form-group">
-                                <label class="sr-only" for="form-lastname">Last Name</label>
-                                <input type="text" name="form-lastname" placeholder="Last Name..." class="form-lastname form-control" id="form-lastname" th:text="*{lastName}"/>
+                                <label class="sr-only" for="password">Password</label>
+                                <input type="password" name="password" placeholder="Password..." class="form-control" id="password" />
                             </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="form-password">Password</label>
-                                <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password" th:text="*{password}"/>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="form-passwordConfirm">Confirm Password</label>
-                                <input type="password" name="form-passwordConfirm" placeholder="Confirm Password..." class="form-passwordConfirm form-control" id="form-passwordConfirm" th:text="*{passwordConfirm}"/>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="form-emailaddress">Email Address</label>
-                                <input type="text" name="form-emailaddress" placeholder="Email Address..." class="form-emailaddress form-control" id="form-emailaddress" th:text="*{emailAddress}"/>
-                            </div>
-                            <button type="submit" class="btn">SignUp</button>
+
+                            <button type="submit" class="btn">Sign In</button>
                         </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 social-login">
+                    <h3>...or login with:</h3>
+                    <div class="social-login-buttons">
+                        <a class="btn btn-link-1 btn-link-1-facebook" href="#">
+                            <i class="fa fa-facebook"></i> Facebook
+                        </a>
+                        <a class="btn btn-link-1 btn-link-1-twitter" href="#">
+                            <i class="fa fa-twitter"></i> Twitter
+                        </a>
+                        <a class="btn btn-link-1 btn-link-1-google-plus" href="#">
+                            <i class="fa fa-google-plus"></i> Google Plus
+                        </a>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 

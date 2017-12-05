@@ -44,6 +44,25 @@ public class RegisterController {
             User user = new User(firstName, lastName, password, passwordConfirm, emailAddress);
             userService.saveUser(user);
         }
-        return "home";
+        return "confirm";
+    }
+
+    // Return registration form template
+    @RequestMapping(value="/login", method = RequestMethod.GET)
+    public ModelAndView showLogInPage(ModelAndView modelAndView, User user){
+        modelAndView.addObject("user", user);
+        modelAndView.setViewName("login");
+        return modelAndView;
+    }
+    @RequestMapping(value="/login", method = RequestMethod.POST)
+    public String SignIn(@RequestParam String fullName, @RequestParam String password) {
+
+        // Lookup user in database by e-mail
+        User userExists = userService.findByNameAndPassword(fullName, password);
+
+        if (userExists != null) {
+
+        }
+        return "confirm";
     }
 }
