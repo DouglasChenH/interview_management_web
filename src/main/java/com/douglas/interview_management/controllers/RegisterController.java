@@ -28,7 +28,7 @@ public class RegisterController {
     @RequestMapping(value="/register", method = RequestMethod.GET)
     public ModelAndView showRegistrationPage(ModelAndView modelAndView, User user){
         modelAndView.addObject("user", user);
-        modelAndView.setViewName("index1");
+        modelAndView.setViewName("register");
         return modelAndView;
     }
 
