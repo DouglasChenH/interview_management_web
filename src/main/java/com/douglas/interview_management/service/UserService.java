@@ -16,8 +16,8 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User findByEmail(String email) {
-        return userRepository.findByEmail(email);
+    public User findByEmailAddress(String emailAddress) {
+        return userRepository.findByEmailAddress(emailAddress);
     }
 
     public User findByConfirmationToken(String confirmationToken) {
