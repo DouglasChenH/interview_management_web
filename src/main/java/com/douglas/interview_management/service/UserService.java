@@ -1,35 +1,56 @@
 package com.douglas.interview_management.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+
 
 import com.douglas.interview_management.models.User;
 import com.douglas.interview_management.repository.UserRepository;
 
-@Service("userService")
-public class UserService {
 
-    private UserRepository userRepository;
+public class UserService implements UserRepository{
+
+
 
     @Autowired
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    MongoTemplate mongoTemplate;
 
+
+    @Override
     public User findByEmailAddress(String emailAddress) {
-        return userRepository.findByEmailAddress(emailAddress);
+        Criteria criteria=Criteria.where("emailAddress").is(emailAddress);
+        User user = getMongoTemplate().findOne(new Query(criteria), User.class);
+        return user;
     }
 
+    @Override
     public User findByNameAndPassword(String fullName, String password) {
-        return userRepository.findByNameAndPassword(fullName, password);
+        Criteria criteria=Criteria.where("fullName").is(fullName).and("password").is(password);
+        User user = getMongoTemplate().findOne(new Query(criteria), User.class);
+        return user;
     }
 
+    @Override
     public User findByConfirmationToken(String confirmationToken) {
-        return userRepository.findByConfirmationToken(confirmationToken);
+        Criteria criteria=Criteria.where("confirmationToken").is(confirmationToken);
+        User user = getMongoTemplate().findOne(new Query(criteria), User.class);
+        return user;
     }
 
-    public void saveUser(User user) {
-        userRepository.save(user);
+    @Override
+    public void save(User user) {
+        getMongoTemplate().save(user);
     }
+
+    public MongoTemplate getMongoTemplate() {
+        return mongoTemplate;
+    }
+
+    public void setMongoTemplate(MongoTemplate mongoTemplate) {
+        this.mongoTemplate = mongoTemplate;
+    }
+
 
 }
