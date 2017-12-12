@@ -64,6 +64,7 @@
                     </div>
                     <div class="form-bottom">
                         <form role="form" th:action="@{login.html}" method="post" class="login-form" >
+                            <input type="hidden" name="token" th:value="${confirmationToken}"  />
                             <div class="form-group">
                                 <label class="sr-only" for="username">Full Name</label>
                                 <input type="text" name="username" placeholder="Username..." class="form-control" id="username" />

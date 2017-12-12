@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LoginController {
-    
+
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     private UserService userService;
 

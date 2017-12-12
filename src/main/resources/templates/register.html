@@ -62,12 +62,8 @@
                     <div class="form-bottom">
                         <form role="form" action="" method="post" class="register-form" th:object="${user}">
                             <div class="form-group">
-                                <label class="sr-only" for="form-firstname">First Name</label>
-                                <input type="text" name="form-firstname" placeholder="First Name..." class="form-firstname form-control" id="form-firstname" th:text="*{firstName}"/>
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="form-lastname">Last Name</label>
-                                <input type="text" name="form-lastname" placeholder="Last Name..." class="form-lastname form-control" id="form-lastname" th:text="*{lastName}"/>
+                                <label class="sr-only" for="form-username">User Name</label>
+                                <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username" th:text="*{getUsername()}"/>
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="form-password">Password</label>

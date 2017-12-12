@@ -2,15 +2,21 @@ package com.douglas.interview_management.repository;
 
 import com.douglas.interview_management.models.User;
 
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 
-public interface UserRepository{
+@Repository("userRepository")
+public interface UserRepository {
 
     User findByEmailAddress(String email);
 
-    User findByNameAndPassword(String fullName, String password);
+    User findByNameAndPassword(String username, String password);
 
     User findByConfirmationToken(String confirmationToken);
 
-    void save(User user);
+    void saveUser(User user);
+
+    List<User> findAll();
 }
