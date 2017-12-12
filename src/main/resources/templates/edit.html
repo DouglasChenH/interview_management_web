@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
+<head>
+    <title>Edit Product</title>
+</head>
+<body>
+<div layout:fragment="content" class="row">
+    <div class="col-xs-8 col-md-8">
+        <h3>
+            <a href="/interview" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list"></span> Interview</a>
+        </h3>
+        <h2>Edit Interview</h2>
+        <form action="/update">
+            <div class="form-group">
+                <label for="email">Position Name:</label>
+                <input type="text" class="form-control" name="positionName" th:value="${interview.positionName}" />
+            </div>
+            <div class="form-group">
+                <label for="email">Position Description</label>
+                <textarea class="form-control" name="positionDesc" cols="60" rows="3" th:text="${interview.positionDesc}"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="email">Company Name</label>
+                <input type="text" class="form-control" name="companyName" th:value="${interview.companyName}" />
+            </div>
+            <div class="form-group">
+                <label for="email">Interview Time</label>
+                <input type="date" class="form-control" name="interviewTime" th:value="${interview.interviewTime}" />
+            </div>
+            <div class="form-group">
+                <label for="email">Interview Location</label>
+                <input type="date" class="form-control" name="interviewTime" th:value="${interview.interviewLocation}" />
+            </div>
+            <input type="hidden" name="id" th:value="${interview.id}" />
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

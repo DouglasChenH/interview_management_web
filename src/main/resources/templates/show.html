@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
+<head>
+    <title>Show Interview</title>
+</head>
+<body>
+<div layout:fragment="content" class="row">
+    <div class="col-xs-8 col-md-8">
+        <h3>
+            <a href="/interview" class="btn btn-primary"><span class="glyphicon glyphicon-list"></span> Interview</a>
+        </h3>
+        <h2 th:text="${interview.positionName}"></h2>
+        <dl class="list">
+            <dt>Interview Description</dt>
+            <dd th:text="${interview.interviewDesc}"></dd>
+            <dt>Company Name</dt>
+            <dd th:text="${interview.companyName}"></dd>
+            <dt>Interview Time</dt>
+            <dd th:datetime="${interview.interviewTime}"></dd>
+            <dt>Company Name</dt>
+            <dd th:text="${interview.interviewLocation}"></dd>
+        </dl>
+        <form action="/delete">
+            <input type="hidden" name="id" th:value="${interview.id}" />
+            <h2><input type="submit" class="btn btn-danger" value="Delete" onclick="return confirm('Are you sure?');" />
+                <a th:href="@{'/edit/' + ${interview.id}}" class="btn btn-warning">Edit</a></h2>
+        </form>
+    </div>
+</div>
+</body>
+</html>
