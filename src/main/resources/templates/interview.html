@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
+<head>
+    <title>Interview List</title>
+</head>
+
+<body>
+<div layout:fragment="content" class="row">
+    <div class="col-xs-8 col-md-8">
+        <h3>
+            <a href="/add" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Product</a>
+        </h3>
+        <h2>Interview List</h2>
+        <div class="table-responsive">
+            <table class="table" id="interview-table">
+                <thead>
+                <tr>
+                    <th>Position Name</th>
+                    <th>Position Desc</th>
+                    <th>Company Name</th>
+                    <th>Interview Time</th>
+                    <th>Interview Location</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="interview : ${interviews}">
+                    <td><a th:text="${interview.positionName}" th:href="@{'/show/' + ${interview.id}}"></a></td>
+                    <td th:text="${interview.positionDesc}"></td>
+                    <td th:text="${interview.companyName}"></td>
+                    <td th:datetime="${interview.interviewTime}"></td>
+                    <td th:text="${interview.interviewLocation}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

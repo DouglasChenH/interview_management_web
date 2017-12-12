@@ -3,25 +3,28 @@ package com.douglas.interview_management.models;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+import java.util.stream.Stream;
+
 
 @Document(collection = "interviews")
 public class Interview {
     @Id
     private String id;
-    private String postitionName;
-    private String postitionDesc;
+    private String positionName;
+    private String positionDesc;
     private String companyName;
-    private String interviewTime;
+    private Date interviewTime;
     private String interviewLocation;
 
 
     public Interview() {
     }
 
-    public Interview(String postitionName, String postitionDesc,
-                     String companyName, String interviewTime, String interviewLocation) {
-        this.postitionName = postitionName;
-        this.postitionDesc = postitionDesc;
+    public Interview(String positionName, String positionDesc,
+                     String companyName, Date interviewTime, String interviewLocation) {
+        this.positionName = positionName;
+        this.positionDesc = positionDesc;
         this.companyName = companyName;
         this.interviewTime = interviewTime;
         this.interviewLocation = interviewLocation;
@@ -35,20 +38,20 @@ public class Interview {
         this.id = id;
     }
 
-    public String getPostitionNameName() {
-        return postitionName;
+    public String getPositionNameName() {
+        return positionName;
     }
 
-    public void setPostitionName(String postitionName) {
-        this.postitionName = postitionName;
+    public void setPositionName(String positionName) {
+        this.positionName = positionName;
     }
 
-    public String getPostitionDesc() {
-        return postitionDesc;
+    public String getPositionDesc() {
+        return positionDesc;
     }
 
-    public void setPostitionDesc(String postitionDesc) {
-        this.postitionDesc = postitionDesc;
+    public void setPositionDesc(String positionDesc) {
+        this.positionDesc = positionDesc;
     }
 
     public String getCompanyName() {
@@ -59,11 +62,11 @@ public class Interview {
         this.companyName = companyName;
     }
 
-    public String getInterviewTime() {
+    public Date getInterviewTime() {
         return interviewTime;
     }
 
-    public void setInterviewTime(String interviewTime) {
+    public void setInterviewTime(Date interviewTime) {
         this.interviewTime = interviewTime;
     }
 
